@@ -1,0 +1,29 @@
+  {
+    "name": "JLTA - Textrous Extractor",
+    "author": "Robin De Schepper",
+    "homepage_url": "https://github.com/Helveg",
+    "short_name": "JLTA",
+    "version": "1.0",
+    "description": "Jaana Loves Textrous Again! Textrous Extractor",
+    "manifest_version": 2,
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "permissions": [
+      "storage",
+      "https://textrous.irp.nia.nih.gov/"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://textrous.irp.nia.nih.gov/client.cgi*"],
+        "js": ["jquery-3.3.1.min.js", "extract.js"],
+        "run_at": "document_end"
+      },
+      {
+        "matches": ["https://textrous.irp.nia.nih.gov/client.cgi*"],
+        "css": ["textrous.css", "extra.css"]
+      }
+    ]
+  }

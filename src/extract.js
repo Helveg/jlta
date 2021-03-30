@@ -3,7 +3,10 @@ var hasCollected = 0;
 var hasFailed = 0;
 var jqxhrArray = [];
 
+console.log("Initialized JLTA")
+
 $(function(){
+  console.log("Executing immediate function context")
   $("h1:contains('SEARCH')").attr('id','showtext');
   var $tdiv = $("table").parents("div");
   // Components
@@ -29,12 +32,15 @@ $(function(){
 
   $tdiv.animate({top: '246px'});
 
+  console.log("Injected components.")
+
   chrome.storage.local.get('file', function(data) {
     $filename.val(data.file);
   });
 })
 
 function extractAll(e){
+  console.log("Running ExtractAll.")
   // Init
   $("#showtext").fadeOut(function(){$(this).text("LOADING")}).fadeIn();
   if($("#collector").length == 0) $("body").append($("<span id='collector'></span>").css('display', 'none'));
